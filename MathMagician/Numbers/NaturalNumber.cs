@@ -4,19 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MathMagician.Numbers //because it is inside the Numbers folder, the namespace has a .Numbers
+namespace MathMagician.Numbers
 {
-    public class NaturalNumber : Integer //any code outside the class can access it and its items per "public"
+    public class NaturalNumber : Integer
     {
-        // default/dynamic implementation - it's private so it won't use anything else besides Integer
-        // BUT make sure all of your methods are "public" so that everyone else can use them
-        private int First { get; set; }
+        protected int First { get; set; }
+        protected int Step { get; set; }
 
-        // a constructor - must be public, no return type; matches the name of the class
+        // One approach is to use a list to hold calculated numbers
+        //private List<int> sequence { get; set; }
+
+
         public NaturalNumber()
         {
             First = 1;
-            // this.First = 1;  these are equal - "this" means the current class instance
+            Step = 1;
+            // this.First = 1;
         }
 
         public int GetFirst()
@@ -24,17 +27,17 @@ namespace MathMagician.Numbers //because it is inside the Numbers folder, the na
             return First;
         }
 
-        public int GetNext(int current)
+        virtual public int GetNext(int current)
         {
-            // 'current' argument is read-only; you cannot change its value
+            // 'current' argument is read-only
+            return current + Step;
 
-            return current + 1;
         }
 
-        public int[] GetSequence(int how_many)
+        public int[] GetSequence(int final_how_many)
         {
-            int[] numbers = new int[how_many];
-            numbers[0] = GetFirst();
+            int[] numbers = new int[final_how_many];
+            numbers[0] = GetFirst(); // i = 1
             for (int i = 1; i < numbers.Length; i++)
             {
                 numbers[i] = GetNext(numbers[i - 1]);

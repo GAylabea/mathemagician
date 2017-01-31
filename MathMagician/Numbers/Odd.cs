@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace MathMagician.Numbers
 {
-    public class EvenNumber : NaturalNumber   
+    public class OddNumber : NaturalNumber
     {
         // a constructor - must be public, no return type; matches the name of the class
-        public EvenNumber()
+        public OddNumber()
         {
-            First = 2;
+            First = 1;
             Step = 2;
         }
 
     }
 }
-
