@@ -60,7 +60,12 @@ namespace MathMagician
                 int[] oddArray = myOddNumber.GetSequence(final_how_many);
                 Console.WriteLine(myOddNumber.PrintNumbers(oddArray));
             }
-
+            else if (command == "fibonacci")
+            {
+                Numbers.FibonacciNumber myFibonacciNumber = new Numbers.FibonacciNumber();
+                int[] fibArray = myFibonacciNumber.GetSequence(final_how_many);
+                Console.WriteLine(myFibonacciNumber.PrintNumbers(fibArray));
+            }
             //*When should you actually create an instance of your class? now or later?
             // What about user-errors - did they enter a valid command?
 

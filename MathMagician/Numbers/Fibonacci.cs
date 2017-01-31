@@ -8,9 +8,30 @@ namespace MathMagician.Numbers
 {
     public class FibonacciNumber : NaturalNumber
     {
-        // this is one option - it could hold a basic sequence of 1, 1, 2, 3, 5, 8
-        // this way makes it possible to inherit from NaturalNumber (*need to correct/add this in your test)
-        private int[] BaseSequence { get; set; }
+        public FibonacciNumber()
+        {
+            First = 1;
+            Step = 0;
+        }
+        public override int GetNext(int current)
+        {
+            return 1;
+        }
+
+        public new int[] GetSequence(int final_how_many)
+        {
+            int[] numbers = new int[final_how_many];
+            int firstnumber = 1, 
+                secondnumber = 1, 
+                thirdnumber = 0;
+            while (thirdnumber < final_how_many)
+            {
+                thirdnumber = firstnumber + secondnumber;
+                firstnumber = secondnumber;
+                secondnumber = thirdnumber;
+            }
+            return numbers;
+        }
     }
 
 }
